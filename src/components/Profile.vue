@@ -42,9 +42,10 @@ export default {
     }),
   },
   methods: {
-    async scanQr() {
-      const response = await liff.scanCodeV2();
-      this.result = response.value
+    scanQr() {
+      liff.scanCodeV2().then((value) => {
+        this.result = value.value;
+      });
     },
   },
   beforeCreate() {
